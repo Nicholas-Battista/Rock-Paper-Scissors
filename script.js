@@ -6,50 +6,56 @@ function getComputerChoice() {
 
 let userscore = 0;
 let computerscore = 0;
+let displayUserScore = document.querySelector('.user');
+let displayCompScore = document.querySelector('.comp');
+let description = document.querySelector('.description')
 
-function playRound(playerChoice, computerChoice) {
+ function playRound(playerChoice, computerChoice) {
     if (playerChoice === "rock" || playerChoice === "paper" || playerChoice === "scissors") {
         while (playerChoice === "rock") {
             if (computerChoice === "scissors") {
                 userscore++;
-                return "You win! rock beats scissors!";
+                return "Your choice: rock        Computer: scissors\n\nYou win! rock beats scissors!";
             }
             else if (computerChoice === "rock") {
-                return "You Tied! rock ties rock!";
+                return "Your choice: rock        Computer: rock\n\nYou Tied! rock ties rock!";
             }
             else {
                 computerscore++;
-                return "You Lose! paper beats rock!";
+                return "Your choice: rock        Computer: paper\n\nYou Lose! paper beats rock!";
             }    
         }
     
         while (playerChoice === "paper") {
             if (computerChoice === "rock") {
                 userscore++;
-                return "You win! paper beats rock!";
+                return "Your choice: paper        Computer: rock\n\nYou win! paper beats rock!";
             }
             else if (computerChoice === "paper") {
-                return "You Tied! paper ties paper!";
+                return "Your choice: paper        Computer: paper\n\nYou Tied! paper ties paper!";
             }
             else {
                 computerscore++;
-                return "You Lose! scissors beats paper!";
+                return "Your choice: paper        Computer: scissors\n\nYou Lose! scissors beats paper!";
             }    
         }
     
         while (playerChoice === "scissors") {
             if (computerChoice === "paper") {
                 userscore++;
-                return "You win! scissors beats paper!";
+                return "Your choice: scissors        Computer: paper\n\nYou win! scissors beats paper!";
             }
             else if (computerChoice === "scissors") {
-                return "You Tied! scissors ties scissors!";
+                return "Your choice: scissors        Computer: scissors\n\nYou Tied! scissors ties scissors!";
             }
             else {
                 computerscore++;
-                return "You Lose! rock beats scissors!";
+                return "Your choice: scissors        Computer: rock\n\nYou Lose! rock beats scissors!";
             }    
         }
+    }
+    else if (playerChoice === "STOP") {
+        alert("Game has been stopped. Goodbye!")
     }
     else {
         return "This is not an option!"
@@ -58,14 +64,16 @@ function playRound(playerChoice, computerChoice) {
     }
 
 function game() {
-    while (userscore !== 5 && computerscore !== 5) {
-        playerChoice = prompt("Whats your next choice?");
+    while (userscore !== 5 && computerscore !== 5 && playerChoice !== "STOP") {
+        playerChoice = prompt("Choose between rock, paper, or scissors!");
         computerChoice = getComputerChoice();
         console.log(computerChoice);
         console.log(playerChoice);
 
         alert(playRound(playerChoice, computerChoice));
         alert("Your score: " + userscore + "            Computer score: " + computerscore);
+        displayUserScore.textContent = "Your score: " + userscore;
+        displayCompScore.textContent = "Comp score: " + computerscore;
     }
 
     if (userscore === 5) {
@@ -74,10 +82,18 @@ function game() {
     else {
         alert("The robots wit was too great!")
     }
-}
+} 
+    let playerChoice;
+    let btns = document.querySelectorAll('button');
+    btns.forEach( btn => {
+        btn.addEventListener('click', () => {
+            playerChoice = btn.innerHTML;
+            console.log(playerChoice);
+        });
+    });
 
 let computerChoice;
-let playerChoice;
-alert("You are battling a AI ROBOT! Quick choose between rock paper or scissors!!");
 
-game();
+
+
+document.getElementById("start").onclick = game;
