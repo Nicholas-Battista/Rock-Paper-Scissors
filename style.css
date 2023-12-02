@@ -10,3 +10,12 @@ body {
 .title {
     background-color: brown;
 }
+
+.choices {
+    display: none;
+    appearance: none;
+}
+
+.choices.is-active {
+    display: flex;
+}

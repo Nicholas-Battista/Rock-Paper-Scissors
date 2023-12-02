@@ -11,7 +11,7 @@ let btns = document.querySelectorAll('button');
 let computerChoice;
 
 
-let popUp = document.querySelector('choices');
+let popUp = document.querySelector('.choices');
 let content = document.querySelector('.results');
 let showScore = document.querySelector('.score');
 
@@ -64,18 +64,12 @@ let outcome;
 
 
 function game() {
-    while (userscore !== 5 && computerscore !== 5) {
+    /* on click show the div to play the game
+    once the user or computer score reaches 5 remove the div and say who won */
 
-        
-    }
+    popUp.classList.toggle('is-active');
 
-    if (userscore === 5) {
-        alert("Congrats ur smarter than a robot!");
-    }
-    else {
-        alert("The robots wit was too great!")
-    }
-} 
+}
     
 
 
