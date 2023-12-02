@@ -9,9 +9,7 @@ let computerscore = 0;
 let playerChoice;
 let btns = document.querySelectorAll('button');
 let computerChoice;
-let displayUserScore = document.querySelector('.user');
-let displayCompScore = document.querySelector('.comp');
-let description = document.querySelector('.description')
+
 
 let popUp = document.querySelector('choices');
 let content = document.querySelector('.results');
@@ -24,8 +22,6 @@ let outcome;
         btn.addEventListener('click', () => {
             playerChoice = btn.textContent;
             computerChoice = getComputerChoice();
-            console.log(computerChoice);
-            console.log(playerChoice);
 
             playRound();
         });
@@ -68,12 +64,9 @@ let outcome;
 
 
 function game() {
-    while (userscore !== 5 && computerscore !== 5 && playerChoice !== "STOP") {
+    while (userscore !== 5 && computerscore !== 5) {
 
-        playRound();
-        alert("Your score: " + userscore + "            Computer score: " + computerscore);
-        displayUserScore.textContent = "Your score: " + userscore;
-        displayCompScore.textContent = "Comp score: " + computerscore;
+        
     }
 
     if (userscore === 5) {
