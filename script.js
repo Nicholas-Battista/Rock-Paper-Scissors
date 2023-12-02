@@ -59,6 +59,10 @@ let outcome;
         content.textContent = "You chose " + playerChoice + "! The computer chose " + computerChoice + "! you " + outcome;
 
         showScore.textContent = "Your score: " + userscore + "\n Computer Score: " + computerscore;
+
+        if (userscore === 5 || computerscore === 5) {
+            popUp.classList.toggle('is-active');
+        }
     }
     
 
@@ -68,6 +72,7 @@ function game() {
     once the user or computer score reaches 5 remove the div and say who won */
 
     popUp.classList.toggle('is-active');
+
 
 }
     
