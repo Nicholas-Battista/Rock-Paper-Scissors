@@ -14,6 +14,9 @@ let computerChoice;
 let popUp = document.querySelector('.choices');
 let content = document.querySelector('.results');
 let showScore = document.querySelector('.score');
+let resutlDiv = document.querySelector('.restart');
+let resultText = document.querySelector('.displayWinner');
+const restartBtn = document.querySelector('.restartBtn');
 
 let outcome;
 
@@ -61,22 +64,40 @@ let outcome;
         showScore.textContent = "Your score: " + userscore + "\n Computer Score: " + computerscore;
 
         if (userscore === 5 || computerscore === 5) {
-            popUp.classList.toggle('is-active');
+            let winOrLoss;
+            resutlDiv.classList.toggle('is-active');
+
+            if (userscore === 5) {
+                outcome = "Win!"
+                winOrLoss = "Congrats!"
+            }
+            else {
+                outcome = "Lose!"
+                winOrLoss = "Sadly!"
+            }
+            resultText.textContent = winOrLoss + " you " + outcome;
         }
     }
+
+    restartBtn.addEventListener('click', () => {
+        userscore = 0;
+        computerscore = 0;
+
+        content.textContent = '';
+        showScore.textContent = '';
+        resultText.textContent = '';
+        resutlDiv.classList.toggle('is-active');
+    });
     
 
 
 function game() {
-    /* on click show the div to play the game
-    once the user or computer score reaches 5 remove the div and say who won */
-
+   
     popUp.classList.toggle('is-active');
-
-
+    START.remove();
+    
 }
     
 
-
-
 document.getElementById("start").onclick = game;
+const START = document.getElementById("start");

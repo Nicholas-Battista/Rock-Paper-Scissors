@@ -9,9 +9,14 @@ body {
 
 .title {
     background-color: brown;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .choices {
+    padding-top: 10em;
     display: none;
     appearance: none;
 }
@@ -19,4 +24,12 @@ body {
 .choices.is-active {
     display: flex;
     flex-direction: column;
+}
+
+.restart {
+    display: none;
+}
+
+.restart.is-active {
+    display: block;
 }
