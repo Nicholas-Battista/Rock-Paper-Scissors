@@ -101,3 +101,6 @@ function game() {
 
 document.getElementById("start").onclick = game;
 const START = document.getElementById("start");
+
+/* toggle buttons off or no use once win, toggle back on after restatrt is clicked */
+
